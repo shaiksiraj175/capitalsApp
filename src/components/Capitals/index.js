@@ -29,7 +29,16 @@ const countryAndCapitalsList = [
   },
 ]
 
-getCountry = () => {
+class Capitals extends Component {
+  state = {
+    activeCapitalId: countryAndCapitalsList[0].id,
+  }
+
+  onChangeCapital = event => {
+    this.setState({activeCapitalId: event.target.value})
+  }
+
+  getCountry = () => {
     const {activeCapitalId} = this.state
 
     const activeCountryAndCapital = countryAndCapitalsList.find(
